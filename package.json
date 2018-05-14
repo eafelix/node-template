@@ -1,0 +1,41 @@
+{
+  "name": "node-template",
+  "version": "1.0.0",
+  "description": "Small node template with common packages to start as fast you can 🚀",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "lint": "eslint lint",
+    "prettier": "prettier './**/*.js'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "lint-staged": {
+    "*.{js,json,css,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "author": "Felix Enriquez",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^5.0.1",
+    "eslint-plugin-prettier": "^2.6.0",
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "husky": "^1.0.0-rc.4",
+    "prettier": "1.12.1",
+    "winston": "^2.4.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test && lint-staged",
+      "pre-push": "npm test"
+    }
+  },
+  "prettier": {
+    "jsxBracketSameLine": true,
+    "semi": false,
+    "singleQuote": true
+  }
+}
